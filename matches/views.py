@@ -5,6 +5,7 @@ from django.shortcuts import render
 from .models import Tournament, Match, Player
 from .forms import MatchForm, TournamentForm, PlayerForm
 
+
 # Create your views here.
 def home(request):
     '''
@@ -12,6 +13,7 @@ def home(request):
     '''
     tournament = Tournament.objects.latest()
     return render(request, 'tournament.html', {'tournament': tournament})
+
 
 def winner(request, match_id):
     '''
@@ -26,8 +28,9 @@ def winner(request, match_id):
             return HttpResponseRedirect('/')
     else:
         form = MatchForm()
-        form.fields['winner'].queryset = Player.objects.filter(Q(player_one=match)| Q(player_two=match))
+        form.fields['winner'].queryset = Player.objects.filter(Q(player_one=match) | Q(player_two=match))
     return render(request, 'winner.html', {'form': form, 'match': match})
+
 
 def new_tournament(request):
     '''

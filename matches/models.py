@@ -3,10 +3,11 @@ from django.utils import timezone
 
 
 BRACKET_SIZES = (
-  (4, 'Four'),
-  (8, 'Eight'),
-  (16, 'Sixteen')
+    (4, 'Four'),
+    (8, 'Eight'),
+    (16, 'Sixteen')
 )
+
 
 class Tournament(models.Model):
     tournament_name = models.CharField(max_length=200)
@@ -18,7 +19,6 @@ class Tournament(models.Model):
     class Meta:
         get_latest_by = "created"
 
-
     def create_matches(self, *args, **kwargs):
 
                 players = list(self.players.order_by('?'))
@@ -28,7 +28,6 @@ class Tournament(models.Model):
                                              player_two=players.pop(),
                                              tournament=self)
                     m.save()
-
 
     def __unicode__(self):
         return self.tournament_name

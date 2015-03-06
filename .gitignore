@@ -57,3 +57,6 @@ target/
 
 # database
 *sqlite3*
+
+# text editor
+*sublime*
