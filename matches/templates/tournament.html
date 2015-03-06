@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tournament</title>
+</head>
+<body>
+	<h1>{{ tournament.tournament_name }}</h1>
+
+	<h2>
+		<ul>
+			{% for match in tournament.matches.all %}
+				{% if match.winner %}
+					<li>{{ match }}</li>
+				{% else %}
+					<a href="/winner/{{ match.id }}"><li>{{ match }}</li></a>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</h2>
+
+	<a href="/new_tournament/"><button>Create a new tournament</button></a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Tournament</title>
+</head>
+<body>
+
+	<h2>Please add a new player</h2>
+
+	<form method="POST">
+
+		<p class="fieldWrapper">
+	    	{{ player_form.name.errors }}
+	    	<label for="id_first_name">Name:</label>
+	    	{{ player_form.name }}
+		</p>
+
+		<button>submit</button>
+		{% csrf_token %}
+
+	</form>
+
+	<h2>Please create a new tournament</h2>
+
+	<form method="POST">
+		<p class="error">
+			{{ tournament_form.non_field_errors }}
+		</p>
+		<p class="fieldWrapper">
+	    	{{ tournament_form.tournament_name.errors }}
+	    	<label for="id_first_name">Name:</label>
+	    	{{ tournament_form.tournament_name }}
+		</p>
+
+		<p class="fieldWrapper">
+	    	{{ tournament_form.players.errors }}
+	    	<label for="id_first_name">Players:</label>
+	    	{{ tournament_form.players }}
+		</p>
+
+		<p class="fieldWrapper">
+	    	{{ tournament_form.max_players.errors }}
+	    	<label for="id_first_name">Max Players:</label>
+	    	{{ tournament_form.max_players }}
+		</p>
+
+		<button>submit</button>
+		{% csrf_token %}
+
+	</form>
+
+</body>
+</html>

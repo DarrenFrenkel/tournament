@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Match</title>
+</head>
+<body>
+	<h1>{{ match }}</h1>
+	<p>Who won the match between {{match.player_one}} and {{match.player_two}}</p>
+	<form method="POST">
+		<p class="fieldWrapper">
+	    	{{ form.winner.errors }}
+	    	<label for="id_first_name">First Name:</label>
+	    	{{ form.winner }}
+		</p>
+
+		<button>submit</button>
+		{% csrf_token %}
+	</form>
+</body>
+</html>
